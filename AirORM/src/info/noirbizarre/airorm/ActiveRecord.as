@@ -565,7 +565,12 @@ package info.noirbizarre.airorm
 				params = params[0];
 			
 			for (var i:int = 0; i < params.length; i++)
-				stmt.parameters[i] = params[i];
+			{
+				if(params[i] != null)
+				{
+					stmt.parameters[i] = params[i];
+				}
+			}
 			
 			stmt.execute();
 			var result:SQLResult = stmt.getResult();
@@ -596,7 +601,7 @@ package info.noirbizarre.airorm
 			var sql:String = "";
 			
 			if (joins)
-				sql += joins;
+				sql += " " + joins;
 			
 			if (conditions)
 				sql += " WHERE " + conditions;
