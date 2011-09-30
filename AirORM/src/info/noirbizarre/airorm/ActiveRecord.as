@@ -601,6 +601,9 @@ package info.noirbizarre.airorm
 			if (conditions)
 				sql += " WHERE " + conditions;
 			
+			if(order)
+				sql += " ORDER BY " + order;
+			
 			if (limit)
 			{
 				sql += " LIMIT " + limit;
